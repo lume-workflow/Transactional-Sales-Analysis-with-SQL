@@ -42,14 +42,14 @@ INSERT INTO orders (customer_id, order_date, paid_at, status, discount_amount) V
 -- PRODUCTS INSERTS
 -- =================
 
-INSERT INTO products (name, description, price)
+INSERT INTO products (name, description, price, category)
 VALUES
-('Notebook Pro 14', 'Laptop 14 polegadas para uso profissional', 500.00),
-('Mouse Wireless', 'Mouse sem fio ergonômico', 100.00),
-('Monitor 24"', 'Monitor LED 24 polegadas Full HD', 300.00),
-('Teclado Mecânico', 'Teclado mecânico com iluminação RGB', 150.00),
-('Cadeira Escritório', 'Cadeira ergonômica para escritório', 400.00),
-('Smartphone X', 'Smartphone 128GB com câmera avançada', 800.00);
+('Notebook Pro 14', 'Laptop 14 polegadas para uso profissional', 500.00, 'Electronics'),
+('Mouse Wireless', 'Mouse sem fio ergonômico', 100.00, 'Electronics'),
+('Monitor 24"', 'Monitor LED 24 polegadas Full HD', 300.00, 'Electronics'),
+('Teclado Mecânico', 'Teclado mecânico com iluminação RGB', 150.00, 'Electronics'),
+('Cadeira Escritório', 'Cadeira ergonômica para escritório', 400.00, 'Furniture'),
+('Smartphone X', 'Smartphone 128GB com câmera avançada', 800.00, 'Electronics');
 
 
 -- =================
