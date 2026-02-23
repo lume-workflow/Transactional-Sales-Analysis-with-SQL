@@ -1,3 +1,8 @@
+-- ========================================================
+-- Qual categoria de produto gerou mais receita,
+-- considerando apenas pedidos pagos?
+-- =========================================================
+
 SELECT
     p.category,
     COALESCE(SUM(oi.quantity * oi.unit_price), 0) AS total
