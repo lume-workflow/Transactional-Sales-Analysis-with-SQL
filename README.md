@@ -26,6 +26,19 @@ O escopo é propositalmente reduzido. A intenção não foi simular um sistema c
 
 ---
 
+## Como rodar
+
+1. schema.sql
+Para a construção do banco de dados
+  
+2. seeds.sql
+Para inserir os dados
+   
+3. sql/metrics/*.sql
+Para executar as queries
+
+---
+
 ## Modelagem e decisões
 
 - `customers` e `products` são tratados como dados mestres  
@@ -37,41 +50,17 @@ Essas decisões evitam inconsistências comuns em análises históricas.
 
 ---
 
-## Regras de negócio adotadas
-
-Para manter as análises consistentes:
-
-- apenas pedidos com `status = 'paid'` são considerados
-- pedidos cancelados são excluídos
-- métricas financeiras refletem apenas transações concluídas
-
-Todas as regras são aplicadas no SQL.
-
----
 
 ## Perguntas respondidas
 
-Algumas das perguntas analíticas exploradas:
+Perguntas analíticas exploradas:
 
-1. Quantidade de pedidos pagos por mês  
-2. Valor médio dos produtos efetivamente comprados  
-3. Clientes com maior volume de receita  
-4. Clientes com maior volume de pedidos  
-5. Produto com maior recorrência de compra  
+- Qual a taxa de pedidos cancelados por mês?
+- Quais clientes concentram o maior volume de receita?
+- Qual o ticket médio por mês?
+- Qual categoria de produto gerou mais receita?
+- Quanto a empresa faturou por mês?
 
-As queries foram escritas explicitando granularidade, filtros e critérios de inclusão.
-
----
-
-## Uso do Power BI
-
-O Power BI é utilizado apenas para visualização.
-
-- não há transformações no BI
-- não há regras de negócio fora do SQL
-- os dashboards apenas consomem o resultado das consultas
-
-O objetivo é separar claramente análise de visualização.
 
 ---
 
@@ -90,6 +79,11 @@ Esses pontos ficaram fora do escopo por decisão consciente.
 ## O que aprendi com este projeto
 
 - a importância de definir regras antes de escrever queries
+(todos os pedidos entram ou só os pagos? preciso aplicar descontos?)
+
 - como a modelagem simplifica (ou complica) o SQL
-- como estruturar consultas pensando em consumo posterior
-- como documentar decisões técnicas, mesmo em projetos simples
+(não ter 'total' em orders gera consistência, mas complexifica o código)
+
+- a importância da prevenção de possíveis erros
+(prever a possibilidade de um 'NULL' levar toda uma conta a 0)
+(como o arredondamento do POSGRESQL pode atrapalhar o cálculo de taxas)
