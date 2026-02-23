@@ -80,13 +80,13 @@ Esses pontos ficaram fora do escopo por decisão consciente.
 
 - a importância de definir regras antes de escrever queries
 
-(todos os pedidos entram ou só os pagos? preciso aplicar descontos?)
+Antes de uma query, é importante entender se TODOS os pedidos serão considerados ou apenas os pagos. Isso evita uma inflação errônea nos resultados.
 
 - como a modelagem simplifica (ou complica) o SQL
 
-(não ter 'total' em orders gera consistência, mas complexifica o código)
+Não ter 'total' em orders gera consistência, mas complexifica o código. 
 
 - a importância da prevenção de possíveis erros
 
-(prever a possibilidade de um 'NULL' levar toda uma conta a 0)
-(como o arredondamento do POSGRESQL pode atrapalhar o cálculo de taxas)
+É necessário prever a possibilidade de um 'NULL' em um cálculo levar toda uma conta a 0, por exemplo.
+Desta mesma forma, o arredondamento automático do POSGRESQL pode atrapalhar o cálculo de taxas.
