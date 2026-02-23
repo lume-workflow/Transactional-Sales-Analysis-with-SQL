@@ -1,0 +1,21 @@
+-- ============================================
+-- Qual é a taxa de pedidos cancelados por mês?
+-- ============================================
+
+WITH cancelled_orders AS ( SELECT
+    o.id,
+    DATE_TRUNC('month', o.order_date) as month,
+    o.status 
+
+    FROM orders o 
+    INNER JOIN order_items oi ON oi.order_id = o.id
+    GROUP BY o.id, month 
+    )
+
+
+SELECT 
+    TO_CHAR(co.month, 'YYYY-MM') AS month,
+    ROUND(COUNT(CASE WHEN co.status = 'cancelled' THEN 1 END)::DECIMAL / COUNT(co.id), 2) AS cancelled_orders_ratio
+FROM cancelled_orders co
+GROUP BY co.month
+ORDER BY co.month;
