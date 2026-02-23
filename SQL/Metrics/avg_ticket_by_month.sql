@@ -1,3 +1,8 @@
+-- ============================================================
+-- Quanto a empresa faturou por mês, considerando apenas
+-- pedidos pagos e descontando os descontos aplicados?
+-- ============================================================
+
 WITH order_totals AS (
     SELECT
         o.id,
