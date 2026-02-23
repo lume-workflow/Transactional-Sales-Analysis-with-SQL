@@ -1,3 +1,7 @@
+-- ==================================
+-- Qual é o ticket médio por mês?
+-- ==================================
+
 WITH order_totals AS (
     SELECT
         o.id AS order_id,
