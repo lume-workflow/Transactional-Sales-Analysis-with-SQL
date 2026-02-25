@@ -1,5 +1,6 @@
 # Transactional-Sales-Analysis-with-SQL
-A SQL-first project that simulates a realistic analytics workflow: relational modeling, business rules definition, and analytical queries over transactional sales data.
+Projeto em SQL que simula um banco de dados realístico: modelagem relacional, definição das regras de negócio e depois queries para análises.
+
 
 ## Motivação
 
@@ -9,7 +10,7 @@ Ao estudar SQL, percebi que a maior dificuldade não estava nos comandos em si, 
 - como decisões de modelagem impactam as consultas
 - como regras de negócio devem ser definidas antes de qualquer visualização
 
-Este projeto surgiu para consolidar esses pontos em um cenário simples, porém realista.
+Este projeto surgiu para consolidar esses pontos em um cenário simples, mas suficientemente realista.
 
 ---
 
